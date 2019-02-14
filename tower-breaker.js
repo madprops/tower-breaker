@@ -4,6 +4,17 @@ const args = process.argv.slice(2)
 const input_file_path = args[0]
 const items_per_row = parseInt(args[1])
 const output_file_path = args[2]
+const flags = args.slice(3)
+
+let add_space_between_items = true
+
+if(flags)
+{
+    if(flags.includes("--no-space"))
+    {
+        add_space_between_items = false
+    }
+}
 
 if(!input_file_path || !items_per_row || !output_file_path)
 {
@@ -18,10 +29,13 @@ console.info(`Breaking ${input_file_path} with ${items_per_row} items per row...
 
 let s = ""
 let counter = 0
+let space = add_space_between_items ? " " : ""
 
 for(let line of lines)
 {
     counter += 1
+    
+    line = line.trim()
 
     if(counter === 1)
     {
@@ -30,13 +44,13 @@ for(let line of lines)
 
     else if(counter === items_per_row)
     {
-        s += ` ${line}\n`
+        s += `${space}${line}\n`
         counter = 0
     }
 
     else
     {
-        s += ` ${line}`
+        s += `${space}${line}`
     }
 }
 

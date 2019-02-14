@@ -44,3 +44,6 @@ It will turn it into:
 "acoustic", "acoustics"
 ```
 
+# Options
+
+--no-space: Removes spacing between items, for example "a,b" instead of "a, b".

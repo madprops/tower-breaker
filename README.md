@@ -52,4 +52,4 @@ It will turn it into:
 | -o  | Output file path. If this is ommitted it will only print to the console  |
 | -n  | The number of items per row  |
 | -sep  | The separator string between items. Defaults to " " (Empty string)  |
-| --windows-linebreaks  | By default the result will be separated by \n . Using this flag changes it to \r\n. |
+| --windows-linebreaks  | By default the result will be separated by \n . Using this flag changes it to \r\n |

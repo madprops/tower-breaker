@@ -22,16 +22,14 @@ if(flags)
     }
 }
 
-if(!input_file_path || !items_per_row || !output_file_path)
+if(!input_file_path || !items_per_row)
 {
-    console.error("Correct format is: thisprogram [input file path] [items per row] [output file path]")
+    console.error("Correct format is: thisprogram [input file path] [items per row] [Optional: output file path] [Optional --flags]")
     return false
 }
 
 const file_content = fs.readFileSync(input_file_path, 'utf8').trim()
 const lines = file_content.split(/\r?\n/)
-
-console.info(`Breaking ${input_file_path} with ${items_per_row} items per row...`)
 
 let s = ""
 let counter = 0
@@ -59,12 +57,20 @@ for(let line of lines)
     }
 }
 
-fs.writeFile(output_file_path, s, function(err) 
+if(output_file_path)
 {
-    if(err) 
+    fs.writeFile(output_file_path, s, function(err) 
     {
-        return console.error(err)
-    }
+        if(err) 
+        {
+            return console.error(err)
+        }
+    
+        console.info("Done!")
+    })
+}
 
-    console.info("Done!")
-})
+else
+{
+    console.info(s)
+}

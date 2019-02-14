@@ -31,7 +31,7 @@ For example:
 
 Notice this is a list of strings, separated by commas. Say for instance the list is too long for your taste, and you want to break it into rows of 4.
 
-Then you can do: node tower-breaker.js path_to_input_file 4 path_to_output_file
+Then you can do: node tower-breaker.js path-to-input_file 4 path-to-output-file
 
 It will turn it into:
 
@@ -43,6 +43,8 @@ It will turn it into:
 "accountant", "achiever", "acid", "acknowledgment",
 "acoustic", "acoustics"
 ```
+
+If the output file path argument is ommitted it will only print to the console.
 
 # Flags
 

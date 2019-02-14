@@ -1,22 +1,41 @@
 const fs = require("fs")
-
 const args = process.argv.slice(2)
-const input_file_path = args[0]
-const items_per_row = parseInt(args[1])
-const output_file_path = args[2]
-const flags = args.slice(3)
 
-let space_character = " "
+let input_file_path
+let items_per_row
+let output_file_path
+let item_separator = " "
 let linebreak_character = "\n"
 
-if(flags)
+for(let i=0; i<args.length; i++)
 {
-    if(flags.includes("--no-spaces"))
+    let arg = args[i]
+
+    if(arg === "-i")
     {
-        space_character = ""
+        input_file_path = args[i + 1]
+        i += 1
     }
 
-    if(flags.includes("--windows-linebreaks"))
+    else if(arg === "-n")
+    {
+        items_per_row = parseInt(args[i + 1])
+        i += 1
+    }
+
+    else if(arg === '-o')
+    {
+        output_file_path = args[i + 1]
+        i += 1
+    }
+
+    else if(arg === "-sep")
+    {
+        item_separator = args[i + 1]
+        i += 1
+    }
+
+    else if(arg === "--windows-linebreaks")
     {
         linebreak_character = "\r\n"
     }
@@ -24,7 +43,7 @@ if(flags)
 
 if(!input_file_path || !items_per_row)
 {
-    console.error("Correct format is: thisprogram [input file path] [items per row] [Optional: output file path] [Optional --flags]")
+    console.error("Correct format is: thisprogram -i [input file path] -n [items per row] -o [Optional: output file path] [Other options]")
     return false
 }
 
@@ -47,13 +66,13 @@ for(let line of lines)
 
     else if(counter === items_per_row)
     {
-        s += `${space_character}${line}${linebreak_character}`
+        s += `${item_separator}${line}${linebreak_character}`
         counter = 0
     }
 
     else
     {
-        s += `${space_character}${line}`
+        s += `${item_separator}${line}`
     }
 }
 

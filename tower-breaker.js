@@ -43,7 +43,7 @@ for(let i=0; i<args.length; i++)
 
 if(!input_file_path || !items_per_row)
 {
-    console.error("Correct format is: thisprogram -i [input file path] -n [items per row] -o [Optional: output file path] [Other options]")
+    console.error("Correct format is: thisprogram -i [input file path] -n [items per row] -o [Optional: output file path] [Optional flags]")
     return false
 }
 

@@ -46,10 +46,15 @@ It will turn it into:
 
 # Arguments
 
-| Flag  | Description |
+| Argument  | Description |
 | ------------- | ------------- |
 | -i  | Input file path. This is a file that only contains the list  |
 | -o  | Output file path. If this is ommitted it will only print to the console  |
 | -n  | The number of items per row  |
 | -sep  | The separator string between items. Defaults to " " (Empty string)  |
+
+# Flags
+
+| Flag  | Description |
+| ------------- | ------------- |
 | --windows-linebreaks  | By default the result will be separated by \n . Using this flag changes it to \r\n |

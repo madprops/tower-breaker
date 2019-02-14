@@ -6,13 +6,19 @@ const items_per_row = parseInt(args[1])
 const output_file_path = args[2]
 const flags = args.slice(3)
 
-let add_space_between_items = true
+let space_character = " "
+let linebreak_character = "\n"
 
 if(flags)
 {
-    if(flags.includes("--no-space"))
+    if(flags.includes("--no-spaces"))
     {
-        add_space_between_items = false
+        space_character = ""
+    }
+
+    if(flags.includes("--windows-linebreaks"))
+    {
+        linebreak_character = "\r\n"
     }
 }
 
@@ -22,14 +28,13 @@ if(!input_file_path || !items_per_row || !output_file_path)
     return false
 }
 
-const file_content = fs.readFileSync(input_file_path, 'utf8')
+const file_content = fs.readFileSync(input_file_path, 'utf8').trim()
 const lines = file_content.split(/\r?\n/)
 
 console.info(`Breaking ${input_file_path} with ${items_per_row} items per row...`)
 
 let s = ""
 let counter = 0
-let space = add_space_between_items ? " " : ""
 
 for(let line of lines)
 {
@@ -44,13 +49,13 @@ for(let line of lines)
 
     else if(counter === items_per_row)
     {
-        s += `${space}${line}\n`
+        s += `${space_character}${line}${linebreak_character}`
         counter = 0
     }
 
     else
     {
-        s += `${space}${line}`
+        s += `${space_character}${line}`
     }
 }
 

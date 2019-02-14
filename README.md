@@ -48,4 +48,6 @@ It will turn it into:
 
 Flags must go after the main arguments.
 
---no-space: Removes spacing between items, for example "a,b" instead of "a, b".
+--no-spaces: Removes spacing between items, for example "a,b" instead of "a, b".
+
+--windows-linebreaks: By default the result will be separated by \n . Using this flag changes it to \r\n.

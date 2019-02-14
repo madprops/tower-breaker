@@ -1,5 +1,3 @@
-![](https://i.imgur.com/Rm5gCrA.jpg)
-
 # What is this?
 
 This is a simple node script that breaks long lists, into smaller lists with a defined items per row argument.

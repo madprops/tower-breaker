@@ -51,7 +51,7 @@ It will turn it into:
 | -i  | Input file path. This is a file that only contains the list  |
 | -o  | Output file path. If this is ommitted it will only print to the console  |
 | -n  | The number of items per row  |
-| -sep  | The separator string between items. Defaults to " " (Blank space)  |
+| -sep  | The separator string between items. Defaults to " " (1 space)  |
 
 # Flags
 
